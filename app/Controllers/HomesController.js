@@ -32,8 +32,9 @@ export class HomesController {
 
     async removeHome(id) {
         try {
+
             //   console.log('deleting', id);
-            if (await Pop.confirm('Are you sure?', 'Someone spent a lot of time browsing the internet for that perfect picture', 'yeah toss it', 'warning')) {
+            if (await Pop.confirm('Are you sure?')) {
                 await homesService.removeHome(id)
             }
         } catch (error) {
