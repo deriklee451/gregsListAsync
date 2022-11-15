@@ -1,5 +1,6 @@
 import { appState } from "../AppState.js";
 import { homesService } from "../Services/HomesService.js";
+import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 
 
@@ -23,6 +24,19 @@ export class HomesController {
             await homesService.getHomes()
         } catch (error) {
             // NOTE best catch alerts the user and logs the error
+            Pop.error(error.message)
+            console.error(error)
+        }
+    }
+
+
+    async removeHome(id) {
+        try {
+            //   console.log('deleting', id);
+            if (await Pop.confirm('Are you sure?', 'Someone spent a lot of time browsing the internet for that perfect picture', 'yeah toss it', 'warning')) {
+                await homesService.removeHome(id)
+            }
+        } catch (error) {
             Pop.error(error.message)
             console.error(error)
         }
