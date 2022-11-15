@@ -7,6 +7,10 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Car').Car[]} */
   cars = []
 
+  /** @type {import('./Models/Home').Home[]} */
+  homes = []
+
+
   /** @type {import('./Models/Car').Car|null} */
   activeCar = null
 }
